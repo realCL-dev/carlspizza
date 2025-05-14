@@ -1,18 +1,16 @@
 //import React from 'react' // Default export, gets the whole thing. We do not need it when using jsx (App.jsx)
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client' // Named export, gets only that element
-import Order from "./Order"
+import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { routeTree } from "./routeTree.gen"
 
+const router = createRouter({ routeTree })
 
 const App = () => {
   return (
     <StrictMode>
-      <div>
-        <h1>Carl's Pizza - Order now!</h1>
-        <Order />
-      </div>
+      <RouterProvider router={router} />
     </StrictMode>
-
   )
 }
 
